@@ -1,17 +1,27 @@
 const express= require("express");
-const app=express();
 const dotenv=require("dotenv").config()
+const connectDB = require("./config/db");
+const app= express();
 
 
-app.get('/',(req,res)=>{
- res.send("hello world")
-})
+app.use(express.json());
+app.use(express.urlencoded({extended:true}))
+connectDB();
 
 
+
+
+
+const UserRoutes=require('./Routes/user')
+app.use("/user",UserRoutes);
+const bookRoutes=require('./Routes/Books')
+app.use("/book",bookRoutes);
+const favourites=require('./Routes/favourite')
+app.use("/favourite",favourites)
 
 
 //  creating port
-app.listen(process.env.PORT,()=>{
-    console.log(`server running  ${process.env.PORT}`);
+app.listen(process.env.PORT,() =>{
+    console.log(`server running ${process.env.PORT}`);
     
 })
