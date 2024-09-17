@@ -18,7 +18,10 @@ const bookRoutes=require('./Routes/Books')
 app.use("/book",bookRoutes);
 const favourites=require('./Routes/favourite')
 app.use("/favourite",favourites)
-
+const carts=require('./Routes/Cart')
+app.use("/cart",carts)
+const orders=require('./Routes/Order')
+app.use("/order",orders)
 
 //  creating port
 app.listen(process.env.PORT,() =>{
