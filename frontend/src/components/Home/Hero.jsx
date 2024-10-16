@@ -1,5 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import img  from '../../../src/images/hero.png'
+  
+
+
 
 function Hero() {
   return (
@@ -20,7 +24,7 @@ function Hero() {
          </div>
        </div>
        <div className="w-full lg:w-3/6 h-auto lg:h-[100%] flex items-center justify-center">        
-        <img className="" src="./hero.png"  alt='hero'/>
+        <img className="" src={img}  alt='hero'/>
        </div>
     </div>
   )

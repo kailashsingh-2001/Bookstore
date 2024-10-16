@@ -7,8 +7,8 @@ const { verifyAuth } = require('../middleware/verifyAuth');
 router.post('/add-book',verifyAuth,controller.addbook);
 router.put('/update-book',verifyAuth,controller.updatebook);
 router.delete('/delete-book',verifyAuth,controller.deletebook);
-router.get('/getallbooks',verifyAuth,controller.allbooks);
-router.get('/get-recent-books',verifyAuth,controller.recentbooks);
-router.get('/get-book-by-id/',verifyAuth,controller.bybookid);
+router.get('/getallbooks',controller.allbooks);
+router.get('/get-recent-books',controller.recentbooks);
+router.get('/get-book-by-id/:id',controller.bybookid);
 
 module.exports=router;

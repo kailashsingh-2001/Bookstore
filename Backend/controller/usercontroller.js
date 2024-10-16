@@ -63,7 +63,7 @@ if(!existinguser){
 return res.status(400).json({message:"provide username does not exists"})
 }
 
-await bcrypt.compare(password,existinguser.password,(err,data)=>{
+ await bcrypt.compare(password,existinguser.password,(err,data)=>{
   if(data){
     const authClaims=
     [

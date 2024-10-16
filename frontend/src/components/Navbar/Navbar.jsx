@@ -2,6 +2,7 @@ import React from 'react'
 import {FaGripLines} from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
+import { useSelector } from 'react-redux'
 const Navbar = () => {
   const links=[
   {
@@ -25,6 +26,12 @@ const Navbar = () => {
     link:"/profile",
   },
   ]
+   const isloggedin =useSelector((state)=>state.auth.isLoggedIn);
+   
+   if(isloggedin ===false){
+    links.splice(2,2)
+   }
+   
   const [MobileNav, setMobileNav]= useState("hidden");
   return (
     <>
@@ -45,12 +52,16 @@ const Navbar = () => {
         </Link>
         ))}
         </div>
+        {isloggedin === false &&(
+<>
         <div className="hidden md:flex  gap-4  ">
           <Link to={'/login'} className="px-2 py-1 border border-blue-500 rounded hover:bg-white hover:text-zinc-800 transition-all duration-300">Login</Link>
           <Link to={'/signup'} className="px-2 py-1 bg-blue-500 rounded hover:bg-white hover:text-zinc-800 transition-all duration-300">Sign up</Link>
         </div>
-        <button className="
-       block md:hidden text-white text-2xl hover:text-zinc-400" 
+</>
+        )}
+        
+        <button className="block md:hidden text-white text-2xl hover:text-zinc-400" 
         onClick={() =>
         (MobileNav ==="hidden" ? 
         setMobileNav("block") : 
