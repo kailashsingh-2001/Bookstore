@@ -114,6 +114,6 @@ exports.bybookid=async (req,res)=>{
        })
     }
     catch(err){
-        return   res.status(500).json({message:"internal error"});
+        return   res.status(500).json({message:"internal error"});  
     }
 }

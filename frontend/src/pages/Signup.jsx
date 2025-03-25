@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 function Signup() {
-  const [message,setmessage]=useState();
+  // const [message,setmessage]=useState();
   const [Values,setvalue]=useState({
     username:"",
     email:"",
@@ -24,7 +24,7 @@ function Signup() {
      }
      else{
       const response=  await axios.post('http://localhost:5000/user/signup', Values);
-      setmessage(response.data.message);
+      alert(response.data.message);
       navigate("/login")
       
       
@@ -87,9 +87,7 @@ function Signup() {
           </div>
         </div>
       </div>
-      <div className="">
-        <h1 className="">{message}</h1>
-      </div>
+     
     </>
   )
 }

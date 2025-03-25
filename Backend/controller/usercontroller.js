@@ -72,7 +72,7 @@ return res.status(400).json({message:"provide username does not exists"})
     ];
     const token=jwt.sign({
       authClaims
-    }, secret, { expiresIn: '5h' });
+    }, secret, { expiresIn: '48h' });
     res.status(200).json({id:existinguser._id,role:existinguser.role,token})
 
   }else{
